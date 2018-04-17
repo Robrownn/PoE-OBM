@@ -1,0 +1,9 @@
+﻿@using PoE_OBM.Views.Build
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<ul class="nav nav-pills nav-stacked">
+    <li class="@BuildNavPages.IndexNavClass(ViewContext)"><a asp-action="Index">Build List</a></li>
+    <li class="@BuildNavPages.CreateNewBuildNavClass(ViewContext)"><a asp-action="CreateNewBuild">Create New Build</a></li>
+</ul>

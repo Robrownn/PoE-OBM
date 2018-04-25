@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  poe-obm:
+    image: poeobm
+    build:
+      context: .
+      dockerfile: PoE-OBM/Dockerfile
+    container_name: "poeobm"
+    hostname: "poeobm"
+    depends_on:
+      - db
+  db:
+    image: "microsoft/mssql-server-linux"
+    env_file:
+    - .env
+    environment:
+      SA_PASSWORD: ${SA_PASSWORD}
+      ACCEPT_EULA: "Y"
+    container_name: "obmdb"
+    hostname: "obmdb"

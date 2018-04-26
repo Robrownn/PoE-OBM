@@ -16,5 +16,22 @@ namespace PoE_OBM.Tests
             var result = controller.Index();
             Assert.IsType<ViewResult>(result);
         }
+
+        [Fact]
+        public void VerifyBuildSave()
+        {
+            var controller = new BuildController();
+            var actionResult = controller.CreateBuild(new Models.ExileBuild 
+            {
+                Name = "Test",
+                userId = 1,
+                ExileClass = Models.BuildClass.Witch
+            });
+
+            Assert.NotNull(actionResult);
+            var result = actionResult;
+
+            Assert.NotNull(result);
+        }
     }
 }

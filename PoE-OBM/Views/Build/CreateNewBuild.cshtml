@@ -1,7 +1,36 @@
-﻿@using PoE_OBM.Views.Build
+﻿@model ExileBuild
+@using PoE_OBM.Views.Build
 @{
     ViewData["Title"] = "Create New Build";
     ViewData.AddActivePage(BuildNavPages.CreateNewBuild);
 }
 
 <h2>Create a New Build</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateBuild">
+            <!-- Name -->
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name"></span>
+            </div>
+
+            <!-- Class -->
+            <div class="form-group">
+                <label asp-for="ExileClass" class="control-label"></label>
+                <select asp-for="ExileClass"
+                        class="form-control"
+                        asp-items="@Html.GetEnumSelectList<BuildClass>()">
+                </select>
+                <span asp-validation-for="ExileClass"></span>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default"/>
+            </div>
+        </form>
+    </div>
+</div>

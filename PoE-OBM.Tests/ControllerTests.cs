@@ -29,9 +29,6 @@ namespace PoE_OBM.Tests
             });
 
             Assert.NotNull(actionResult);
-            var result = actionResult;
-
-            Assert.NotNull(result);
         }
     }
 }

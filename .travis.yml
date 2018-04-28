@@ -4,7 +4,7 @@ dotnet: 2.1.105
 solution: PoE-OBM.sln
 install:
   - sudo apt-get install -y gtk-sharp2
-  - dotnet sln MySolution.sln remove docker-compose.dcproj
+  - dotnet sln PoE-OBM.sln remove docker-compose.dcproj
   - dotnet restore PoE-OBM.sln
   - dotnet add package xunit.runners --version 1.9.2 -OutputDirectory testrunner
 script:

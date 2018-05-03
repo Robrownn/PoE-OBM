@@ -4,8 +4,8 @@ dotnet: 2.1.105
 solution: PoE-OBM.sln
 install:
   - dotnet sln PoE-OBM.sln remove docker-compose.dcproj
-  - dotnet restore PoE-OBM.sln
   - dotnet add PoE-OBM.Tests/PoE-OBM.Tests.csproj package xunit.runners --version 1.9.2 --package-directory testrunner
+  - dotnet restore PoE-OBM.sln
 script:
   - xbuild /p:Configuration=Release PoE-OBM.sln
   - dotnet ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./PoE-OBM.Tests/bin/Release/PoE-OBM.Tests.dll

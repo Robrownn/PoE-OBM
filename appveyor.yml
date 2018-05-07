@@ -9,7 +9,7 @@ image: Visual Studio 2017
 configuration: Debug
 
 build:
-  project: PoE-OBM\PoE-OBM.csproj
+  project: C:\projects\poe-obm\PoE-OBM\PoE-OBM.csproj
 
 before_build:
   - dotnet restore

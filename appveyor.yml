@@ -15,5 +15,5 @@ install:
 build:
   project: PoE-OBM.sln
 
-before_build:
+before_package:
   - dotnet restore

@@ -1,19 +1,23 @@
 version: 1.0.{build}
-
+image: Visual Studio 2017
 branches:
   only:
     - master
-
-image: Visual Studio 2017
-
-configuration: Debug
-
-install:
-  - echo "$PWD"
-  - ls
-
-build:
-  project: PoE-OBM.sln
-
-before_package:
-  - dotnet restore
+init:
+  - cmd: git config --global core.autocrlf true
+before_build:
+  - cmd: dotnet --version
+  - cmd: dotnet restore ./PoE-OBM/PoE-OBM.csproj --verbosity m
+build_script:
+  - cmd: dotnet publish ./PoE-OBM/PoE-OBM.csproj
+artifacts:
+  - path: '\PoE-OBM\bin\Debug\netcoreapp2.0\publish'
+    name: PoE-OBM-WebApp
+    type: WebDeployPackage
+clone_depth: 1
+test_script:
+  - cmd: dotnet restore ./PoE-OBM.Tests/PoE-OBM.Tests.csproj --verbosity m
+  - cmd: cd PoE-OBM.Tests
+  - cmd: dotnet xunit
+on_finish:
+  deploy: off

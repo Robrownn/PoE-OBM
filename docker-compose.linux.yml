@@ -13,7 +13,7 @@ services:
     depends_on:
       - db
   db:
-    image: "microsoft/mssql-server-windows-express"
+    image: "microsoft/mssql-server-linux"
     env_file:
     - .env
     environment:

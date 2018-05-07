@@ -9,7 +9,7 @@ namespace PoE_OBM.Tests
 {
     public class ControllerTests
     {
-        // Hi AppVeyor!
+        // Hi AppVeyor! Sorry about not telling you which project to build :(
         [Fact]
         public void VerifyIndexViewType()
         {

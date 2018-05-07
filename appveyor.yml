@@ -8,6 +8,9 @@ image: Visual Studio 2017
 
 configuration: Debug
 
+install:
+  - ls
+
 build:
   project: C:\projects\poe-obm\PoE-OBM\PoE-OBM.csproj
 

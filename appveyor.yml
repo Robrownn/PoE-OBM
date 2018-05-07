@@ -12,7 +12,7 @@ install:
   - ls
 
 build:
-  project: C:\projects\poe-obm\PoE-OBM\PoE-OBM.csproj
+  project: PoE-OBM.sln
 
 before_build:
   - dotnet restore

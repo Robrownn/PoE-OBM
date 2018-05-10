@@ -26,6 +26,7 @@ namespace PoE_OBM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Identity Services
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -38,6 +39,10 @@ namespace PoE_OBM
                 googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
                 googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
             });
+
+            // Build Services
+            services.AddDbContext<BuildDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("BuildDbConnection")));
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();

@@ -5,14 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoE_OBM.Models;
+using PoE_OBM.Services;
 
 namespace PoE_OBM.Controllers
 {
     [Authorize]
     public class BuildController : Controller
     {
+        private readonly IBuildData _buildData;
+
+        public BuildController(IBuildData buildData)
+        {
+            _buildData = buildData;
+        }
         public IActionResult Index()
         {
+            // Should the index view be a list of all the builds for the currently logged in user
+            // or should it be a generic page that has some stuff(????) in it and the user has to navigate to their build list
             return View();
         }
 
@@ -25,12 +34,12 @@ namespace PoE_OBM.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Add model to DB
+                _buildData.Add(model);
                 return RedirectToAction(nameof(Index));
             }
             else
             {
-                return View(nameof(CreateNewBuild));
+                return RedirectToAction(nameof(CreateNewBuild));
             }
         }
     }

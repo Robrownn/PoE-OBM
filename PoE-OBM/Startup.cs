@@ -43,6 +43,7 @@ namespace PoE_OBM
             // Build Services
             services.AddDbContext<BuildDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("BuildDbConnection")));
+            services.AddScoped<IBuildData,SQLBuildData>();
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();

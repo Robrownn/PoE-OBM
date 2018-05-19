@@ -19,9 +19,14 @@ namespace PoE_OBM
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            var skillTreeFile = new ConfigurationBuilder()
+                .AddJsonFile("Assets/SkillTree.json")
+                .Build();
+            SkillTree = skillTreeFile;
         }
 
         public IConfiguration Configuration { get; }
+        public IConfiguration SkillTree { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)

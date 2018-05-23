@@ -14,5 +14,6 @@ namespace PoE_OBM.Models.SkillTreeModels
         public IEnumerable<CharacterData> CharacterData { get; set; }
         public IEnumerable<SkillTreeConstants> Constants { get; set; }
         public IEnumerable<SkillTreeGroups> SkillTreeGroups { get; set; }
+        public IEnumerable<SkillTreeNodes> Nodes { get; set; }
     }
 }
